@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api'
 
 const containerStyle = {
@@ -18,18 +18,9 @@ const elonJetCenter = {
 
 function Map() {
 	const [center, setCenter] = useState(initialCenter)
-	const mapRef = useRef(null)
 
-	const handleElonJetClick = event => {
-		event.preventDefault()
-		const map = mapRef.current
-		if (map) {
-			map.panTo(elonJetCenter, 3000)
-		}
-	}
-
-	const handleMapLoad = map => {
-		mapRef.current = map
+	const handleElonJetClick = () => {
+		setCenter(elonJetCenter)
 	}
 
 	return (
@@ -38,8 +29,8 @@ function Map() {
 				mapContainerStyle={containerStyle}
 				center={center}
 				zoom={10}
-				onLoad={handleMapLoad}></GoogleMap>
-			<button onClick={handleElonJetClick}>elonJet</button>
+			/>
+			<button onClick={handleElonJetClick}>Fly with Elon!</button>
 		</LoadScript>
 	)
 }
