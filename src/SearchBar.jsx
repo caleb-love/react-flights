@@ -1,8 +1,7 @@
-
 import { useEffect, useState } from 'react';
-import { onFlightTrack } from './opensky_api';
+import { flightNumToCallsign } from './utils/airlines-api';
 
-export default function SearchBar(){
+export default function SearchBar( { flights, setTrackedFlight } ){
 
     const [error, setError] = useState("")
     const [formData, setFormData] = useState()
@@ -10,13 +9,13 @@ export default function SearchBar(){
 
     const handleSubmit = (e) => {
 
-    e.preventDefault()
-
-    onFlightTrack(formData)
-        .then(res => {
-        console.log(res)
-        setFlightICAO(res)
-        })
+        e.preventDefault()
+        
+        const callSign = flightNumToCallsign(formData);
+        const requiredFlight = flights.filter(flight => flight[1] === callSign);
+        setTrackedFlight(requiredFlight)
+        // console.log(callSign)
+        // console.log(requiredFlight)
     }
 
     const handleChange = (e) => {
@@ -28,8 +27,8 @@ export default function SearchBar(){
 
         <>
         <form onChange={handleChange} onSubmit={handleSubmit}>
-        <input type="text" name="search"/>
-        <button>search</button>
+            <input type="text" name="search"/>
+            <button>search</button>
         </form>
         </>
     )
