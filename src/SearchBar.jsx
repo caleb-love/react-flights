@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react'
 import { flightNumToCallsign } from './utils/airlines-api'
 import './SearchBar.css'
 
-export default function SearchBar({ flights, setTrackedFlight }) {
-	const [error, setError] = useState('')
-	const [formData, setFormData] = useState('')
-	const [flightICAO, setFlightICAO] = useState({})
+export default function SearchBar( { flights, setTrackedFlight } ){
+
+    const [error, setError] = useState("")
+    const [formData, setFormData] = useState()
 
 	const handleSubmit = e => {
 		e.preventDefault()
