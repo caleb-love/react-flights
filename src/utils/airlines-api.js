@@ -6,11 +6,11 @@ export function flightNumToCallsign(flightNum) {
     // Clean input of non-alphanumeric characters and spaces. Make uppercase.
     const flightNumSanitised = flightNum.replace(/[\W_]+/g," ").replace(/\s+/g, '').toUpperCase();
 
-    // Extract the numerical suffix 
-    const flightNumDigits = flightNumSanitised.match(/([^a-zA-Z]*\d)/g)[0]
-
     // Extract the IATA code prefix
-    const flightIataCode = flightNumSanitised.split(flightNumDigits)[0]
+    const flightIataCode = flightNumSanitised.slice(0,2);
+
+    // Extract the numerical suffix 
+    const flightNumDigits = flightNumSanitised.slice(2);
 
     // Convert IATA code to ICAO code
     const flightIcaoCode = airlineData
