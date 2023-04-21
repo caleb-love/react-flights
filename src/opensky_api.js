@@ -7,4 +7,14 @@ function onFlightTrack(ICAOnumber) {
     }).then(res => res.json())
 }
 
-export { onFlightTrack };
+function allActiveFlights() {
+
+    return fetch("https://opensky-network.org/api/states/all", {
+        headers: {
+          Authorization: "Basic " + btoa("pragmaticFlights:testing@123"),
+        },
+      })
+        .then(res => res.json())
+}
+
+export { onFlightTrack , allActiveFlights};
