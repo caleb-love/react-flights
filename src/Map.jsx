@@ -32,31 +32,34 @@ const initialCenter = {
 }
 
 
-function Map({ flightICAO }) {
+function Map({ trackedFlight }) {
 
 
+    console.log(trackedFlight)
     const [center, setCenter] = useState(initialCenter)
     const [path, setPath] = useState([])
 
+
+
     useEffect(() => {
 
-        const pathLength = flightICAO.path.length -1
+        const pathLength = trackedFlight.path.length -1
 
 
-        setPath(flightICAO.path.reduce((acc, curr) => {
+        setPath(trackedFlight.path.reduce((acc, curr) => {
 
             return [...acc, {["lat"]: curr[1], ["lng"]:curr[2]}]
             }, [])
         )
 
         setCenter({
-            lat: flightICAO.path[pathLength][1],
-            lng: flightICAO.path[pathLength][2],
+            lat: trackedFlight.path[pathLength][1],
+            lng: trackedFlight.path[pathLength][2],
         })
         console.log("useEffect mapping new path")
         console.log(path)
 
-    }, [flightICAO])
+    }, [trackedFlight])
 
 
 	const handleElonJetClick = () => {

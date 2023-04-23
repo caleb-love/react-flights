@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react"
 //import axios from "axios"
-import { allActiveFlights } from "../opensky_api"
+import { allActiveFlights } from '../utils/opensky_api'
 import SearchBar from "../SearchBar"
-import  './HomePage.css'
+import Map from "../Map"
+import '../pages/HomePage.css'
 
 export default function HomePage() {
   const [flights, setFlights] = useState([])
   const [airlines, setAirlines] = useState([])
   const [trackedFlight, setTrackedFlight] = useState([])
+  
+
 
   useEffect(() => {
     allActiveFlights()
@@ -26,10 +29,11 @@ export default function HomePage() {
   //   airlineName = airlinesData.find(airline => airline.ICAO === flight[0])
   // })
 
+
   return (
     <div>
-      <h1 className="app-h1">My OpenSky App</h1>
-      <SearchBar flights={flights} setTrackedFlight={setTrackedFlight}/>
+      <h1>My OpenSky App</h1>
+      <SearchBar trackedFlight = {trackedFlight} flights = {flights} setTrackedFlight={setTrackedFlight}/>
       <ul>
         {flights.slice(0,10).map(flight => (
           //this needs to change according to the way we want our display
@@ -38,6 +42,8 @@ export default function HomePage() {
           </li>
         ))}
       </ul>
+      {trackedFlight[1]!== undefined ? <Map trackedFlight = {trackedFlight[1]}/> : ( <div className="radar"><div className="beacon"></div>
+    </div>)}
     </div>
   )
 }
