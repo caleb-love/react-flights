@@ -1,20 +1,26 @@
-import { useEffect, useState } from 'react'
-import { flightNumToCallsign } from './utils/airlines-api'
-import './SearchBar.css'
+import { useEffect, useState } from 'react';
+import { flightNumToCallsign } from './utils/airlines-api';
+import { onFlightTrack } from './utils/opensky_api';
 
-export default function SearchBar({ flights, setTrackedFlight }) {
-	const [error, setError] = useState('')
-	const [formData, setFormData] = useState('')
-	const [flightICAO, setFlightICAO] = useState({})
+export default function SearchBar( { flights, setTrackedFlight, trackedFlight } ){
 
-	const handleSubmit = e => {
-		e.preventDefault()
-		const callSign = flightNumToCallsign(formData)
-		const requiredFlight = flights.filter(flight => flight[1] === callSign)
-		setTrackedFlight(requiredFlight)
-		// console.log(callSign)
-		// console.log(requiredFlight)
-	}
+    const [formData, setFormData] = useState()
+
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault()
+        
+        const callSign = flightNumToCallsign(formData);
+        const requiredFlight = flights.filter(flight => flight[1] === callSign);
+
+        if(requiredFlight!= undefined){
+            onFlightTrack(requiredFlight[0][0]).then(res => setTrackedFlight([...requiredFlight, res]))   
+        }
+    
+
+
+    }
 
 	const handleChange = e => {
 		setFormData(e.target.value)
