@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 //import axios from "axios"
 import { allActiveFlights } from "../opensky_api"
 import SearchBar from "../SearchBar"
+import  './HomePage.css'
 
 export default function HomePage() {
   const [flights, setFlights] = useState([])
@@ -27,7 +28,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>My OpenSky App</h1>
+      <h1 className="app-h1">My OpenSky App</h1>
       <SearchBar flights={flights} setTrackedFlight={setTrackedFlight}/>
       <ul>
         {flights.slice(0,10).map(flight => (

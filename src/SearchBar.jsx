@@ -1,38 +1,39 @@
-import { useEffect, useState } from 'react';
-import { flightNumToCallsign } from './utils/airlines-api';
+import { useEffect, useState } from 'react'
+import { flightNumToCallsign } from './utils/airlines-api'
+import './SearchBar.css'
 
-export default function SearchBar( { flights, setTrackedFlight } ){
+export default function SearchBar({ flights, setTrackedFlight }) {
+	const [error, setError] = useState('')
+	const [formData, setFormData] = useState('')
+	const [flightICAO, setFlightICAO] = useState({})
 
-    const [error, setError] = useState("")
-    const [formData, setFormData] = useState()
-    const [flightICAO, setFlightICAO] = useState({})
+	const handleSubmit = e => {
+		e.preventDefault()
+		const callSign = flightNumToCallsign(formData)
+		const requiredFlight = flights.filter(flight => flight[1] === callSign)
+		setTrackedFlight(requiredFlight)
+		// console.log(callSign)
+		// console.log(requiredFlight)
+	}
 
-    const handleSubmit = (e) => {
+	const handleChange = e => {
+		setFormData(e.target.value)
+	}
 
-        e.preventDefault()
-        
-        const callSign = flightNumToCallsign(formData);
-        const requiredFlight = flights.filter(flight => flight[1] === callSign);
-        setTrackedFlight(requiredFlight)
-        // console.log(callSign)
-        // console.log(requiredFlight)
-    }
-
-    const handleChange = (e) => {
-
-        setFormData(e.target.value)
-    }
-
-    return (
-
-        <>
-        <form onChange={handleChange} onSubmit={handleSubmit}>
-            <input type="text" name="search"/>
-            <button>search</button>
-        </form>
-        </>
-    )
-    
+	return (
+		<form
+			className='flight-search'
+			onChange={handleChange}
+			onSubmit={handleSubmit}>
+			<div className='search-wrapper'>
+				<input
+					type='text'
+					id='search'
+					name='search'
+					placeholder='Enter flight number'
+				/>
+				<button type='submit'>Search</button>
+			</div>
+		</form>
+	)
 }
-
-

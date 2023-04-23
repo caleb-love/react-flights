@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api'
+import './Map.css'
 
 const containerStyle = {
 	width: '90vw',
