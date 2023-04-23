@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { flightNumToCallsign } from './utils/airlines-api'
+import { onFlightTrack } from './opensky_api';
 import './SearchBar.css'
 
 export default function SearchBar( { flights, setTrackedFlight } ){
 
-    const [error, setError] = useState("")
+
     const [formData, setFormData] = useState()
 
 	const handleSubmit = e => {
