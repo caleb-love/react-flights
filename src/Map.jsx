@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api'
+import React, { useState, useEffect } from 'react'
+import { GoogleMap, LoadScript, Polyline, Marker } from '@react-google-maps/api'
 import './Map.css'
 
 const containerStyle = {
@@ -80,9 +80,7 @@ function Map({ trackedFlight }) {
                     />
                 <Marker 
                     position={center}
-                    icon = {img}
-                    
-                /> 
+                    /> 
             </GoogleMap>
             
 			<button onClick={handleElonJetClick}>Fly with Elon!</button>
