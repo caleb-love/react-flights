@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, LoadScript, Polyline, Marker } from '@react-google-maps/api'
+import planeIcon from './plane.png'
 import './Map.css'
 
 const containerStyle = {
@@ -64,25 +65,24 @@ function Map({ trackedFlight }) {
 	}
 
 	return (
-		<LoadScript googleMapsApiKey={process.env.GOOGLE_API_KEY}>
-            
+        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY}>
             <GoogleMap
-              mapContainerStyle={containerStyle}
-              center={center}
-              zoom={10}>
-            
-                <Polyline 
-                    path={path} 
-                    options={options} 
-                    />
-                <Marker 
+                mapContainerStyle={containerStyle}
+                center={center}
+                zoom={10}>
+                <Polyline path={path} options={options} />
+                <Marker
                     position={center}
-                    /> 
+                    icon={{
+                        url: planeIcon,
+                        // anchor: new window.google.maps.Point(25, 25),
+                    }}
+                />
             </GoogleMap>
-            
-			<button onClick={handleElonJetClick}>Fly with Elon!</button>
-		</LoadScript>
-	)
+
+            <button onClick={handleElonJetClick}>Fly with Elon!</button>
+        </LoadScript>
+    )
 }
 
 export default React.memo(Map)
