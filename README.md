@@ -44,12 +44,7 @@ If you would like to contribute to ElonJet, please follow these steps:
 - Tom the Gitlord will review the pull request and speak with the team members.
 
 ## Credits
-ElonJet was created by Tom, Iffath, Akram, and Caleb as part of a group project for the General Assembly Engineering Immersive course.
-https://github.com/BigBBazz
-https://github.com/iffath02
-https://github.com/Akman13
-https://github.com/caleb-love
+ElonJet was created by [Tom](https://github.com/BigBBazz), [Iffath](https://github.com/iffath02), [Akram](https://github.com/Akman13), and [Caleb](https://github.com/caleb-love) as part of a group project for the General Assembly Engineering Immersive course.
 
-
-License
+## License
 ElonJet is licensed under the MIT License.
