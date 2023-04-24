@@ -63,12 +63,12 @@ export default function HomePage() {
       <SearchBar flights={flights} setTrackedFlight={setTrackedFlight} />
       <FlightsCards topFlights={topFlights} />
       <ul>
-        {flights.slice(0, 10).map(flight => (
+        {/* {flights.slice(0, 10).map(flight => (
           //this needs to change according to the way we want our display
           <li key={flight[0]}>
             {flight[1]} ({flight[2]}) - Altitude: {flight[7]} m
           </li>
-        ))}
+        ))} */}
       </ul>
       {trackedFlight[1]!== undefined ? <Map trackedFlight = {trackedFlight[1]}/> : ( <div className="radar"><div className="beacon"></div>
     </div>)}

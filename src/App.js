@@ -2,7 +2,6 @@ import "./App.css"
 import { useEffect, useState } from "react"
 import SearchBar from "./components/SearchBar"
 import Map from "./Map"
-import SearchBar from "./SearchBar"
 import HomePage from "./pages/HomePage"
 
 
