@@ -41,7 +41,7 @@ If you would like to contribute to ElonJet, please follow these steps:
 - Make your changes and commit them.
 - Push your changes to your forked repository.
 - Submit a pull request.
-- Tom the Gitlord will review the pull request and speak with the team members.
+- [Tom](https://github.com/BigBBazz), the Gitlord will review the pull request and speak with the team members.
 
 ## Credits
 ElonJet was created by [Tom](https://github.com/BigBBazz), [Iffath](https://github.com/iffath02), [Akram](https://github.com/Akman13), and [Caleb](https://github.com/caleb-love) as part of a group project for the General Assembly Engineering Immersive course.
