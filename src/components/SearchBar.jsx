@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { flightNumToCallsign } from '../utils/airlines';
+import { onFlightTrack } from './../utils/opensky_api';
 
-export default function SearchBar( { flights, setTrackedFlight } ){
+
+export default function SearchBar( { flights, setTrackedFlight, trackedFlight } ){
 
     const [error, setError] = useState("")
     const [formData, setFormData] = useState()
@@ -16,6 +18,11 @@ export default function SearchBar( { flights, setTrackedFlight } ){
         setTrackedFlight(requiredFlight)
         console.log(callSign)
         console.log(requiredFlight)
+        console.log(trackedFlight)
+        
+        if(requiredFlight[0][0].length !== undefined){
+            onFlightTrack(requiredFlight[0][0]).then(res => setTrackedFlight([...requiredFlight, res]))   
+        }
     }
 
     const handleChange = (e) => {
