@@ -4,7 +4,6 @@ import { allActiveFlights, flightByAircraftIcao } from '../utils/opensky_api'
 import SearchBar from "../components/SearchBar"
 import FlightsCards from "../components/FlightsCards"
 import { callsignToFlightnum, filterByRule, mapApiDataToTopFlight } from "../utils/airports"
-// import { flightByAircraftIcao } from "../opensky_api";
 
 import Map from "../Map"
 import '../pages/HomePage.css'
@@ -57,7 +56,7 @@ export default function HomePage() {
     <div>
       <h1>My OpenSky App</h1>
       <SearchBar flights={flights} setTrackedFlight={setTrackedFlight} />
-      <FlightsCards topFlights={topFlights} />
+      <FlightsCards topFlights={topFlights} flights={flights} setTrackedFlight={setTrackedFlight} />
 
       {trackedFlight[1]!== undefined ? <Map trackedFlight = {trackedFlight[1]}/> : ( <div className="radar"><div className="beacon"></div>
     </div>)}

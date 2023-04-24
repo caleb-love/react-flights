@@ -35,7 +35,6 @@ const initialCenter = {
 function Map({ trackedFlight }) {
 
 
-    console.log(trackedFlight)
     const [center, setCenter] = useState(initialCenter)
     const [path, setPath] = useState([])
 
@@ -56,8 +55,6 @@ function Map({ trackedFlight }) {
             lat: trackedFlight.path[pathLength][1],
             lng: trackedFlight.path[pathLength][2],
         })
-        console.log("useEffect mapping new path")
-        console.log(path)
 
     }, [trackedFlight])
 
