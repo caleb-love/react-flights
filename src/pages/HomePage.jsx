@@ -52,6 +52,7 @@ export default function HomePage() {
   //   airlineName = airlinesData.find(airline => airline.ICAO === flight[0])
   // })
 
+
   return (
     <div>
       <h1>My OpenSky App</h1>
