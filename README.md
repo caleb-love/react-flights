@@ -26,6 +26,9 @@ To install ElonJet on your local machine, follow these steps:
 - Run npm start in your terminal.
 - Open your browser and navigate to http://localhost:3000.
 ### Usage
+Tom has already used this application in the real world to display a loved ones private jet home from LA.
+Be more like Tom.
+
 To use ElonJet, follow these steps:
 
 - Open your browser and navigate to http://localhost:3000.
