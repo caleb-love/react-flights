@@ -7,7 +7,7 @@ ElonJet is a flight tracking project created by a team of four developers using 
 At the start of the project, we created a wire-frame and a Trello board to organise ourselves. We divided the workload based on strengths, and also on interest on which challenges we wanted to take on, with each member of the team assigned tasks such as UI/UX design, API integration, front-end, and back-end development.
 
 ## Challenges
-One of the biggest challenges we faced was dealing with API issues. There were times when the OpenSky API came to the limitations of the free versions request limits, making it impossible to fetch flight data. To solve this issue, we created multiple logins in order to continue development, we also implemented a contingency plan by having a backup API that we could switch to if the primary API was unavailable.
+One of the biggest challenges we faced was dealing with API issues. There were times when the OpenSky API came to the limitations of the free versions request limits, making it impossible to fetch flight data.<br>To solve this issue, we created multiple logins in order to continue development, we also implemented a contingency plan by having a backup API that we could switch to if the primary API was unavailable.
 
 ## Trello Board
 To keep track of our progress, we created a Trello board with different columns such as “To-Do,” “In-Progress,” “Testing,” and “Completed.” Each task was assigned a due date and labeled with the name of the person responsible for it. The board made it easy for us to track progress and know which tasks needed to be done. Especially during times when we were having difficulty finishing or bug fixing certain tasks.
